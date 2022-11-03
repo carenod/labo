@@ -26,7 +26,7 @@ hs  <- makeParamSet(
           makeIntegerParam("maxdepth" , lower=  3L  , upper=   20L),
           forbidden = quote( minbucket > 0.5*minsplit ) )             # minbuket NO PUEDE ser mayor que la mitad de minsplit
 
-ksemilla_azar  <- 102191   #cambiar por la primer semilla
+ksemilla_azar  <-  298043   #cambiar por la primer semilla
 
 #------------------------------------------------------------------------------
 #graba a un archivo los componentes de lista
@@ -140,7 +140,7 @@ EstimarGanancia  <- function( x )
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
 
-setwd( "D:\\gdrive\\UBA2022\\" )
+setwd( "D:/FCEN/Materias/DataMining/Materias/DMEF" )
 
 #cargo el dataset
 dataset  <- fread("./datasets/competencia1_2022.csv")   #donde entreno
@@ -149,12 +149,12 @@ dataset  <- fread("./datasets/competencia1_2022.csv")   #donde entreno
 #creo la carpeta donde va el experimento
 # HT  representa  Hiperparameter Tuning
 dir.create( "./exp/",  showWarnings = FALSE ) 
-dir.create( "./exp/HT3210/", showWarnings = FALSE )
-setwd("./exp/HT3210/")   #Establezco el Working Directory DEL EXPERIMENTO
+dir.create( "./exp/HT_ultimo_domingo/", showWarnings = FALSE )
+setwd("./exp/HT_ultimo_domingo/")   #Establezco el Working Directory DEL EXPERIMENTO
 
 
-archivo_log  <- "HT321.txt"
-archivo_BO   <- "HT321.RDATA"
+archivo_log  <- "HT_ultimo_domingo.txt"
+archivo_BO   <- "HT_ultimo_domingo.RDATA"
 
 #leo si ya existe el log, para retomar en caso que se se corte el programa
 GLOBAL_iteracion  <- 0
