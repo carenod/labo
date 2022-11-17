@@ -57,11 +57,11 @@ setorder( tb_log, -ganancia )
 TS <- "EC_TS9320_TRAINING20192021_replica_original" # by DAC
 
 #leo el dataset donde voy a entrenar el modelo final
-arch_dataset  <- paste0( base_dir, "exp/", TS, "/dataset_train_final.csv.gz" )
+arch_dataset  <- paste0( base_dir, "exp/", PARAM$exp_input, "/dataset_train_final.csv.gz" )
 dataset  <- fread( arch_dataset )
 
 #leo el dataset donde voy a aplicar el modelo final
-arch_future  <- paste0( base_dir, "exp/", TS, "/dataset_future.csv.gz" )
+arch_future  <- paste0( base_dir, "exp/", PARAM$exp_input, "/dataset_future.csv.gz" )
 dfuture <- fread( arch_future )
 
 
