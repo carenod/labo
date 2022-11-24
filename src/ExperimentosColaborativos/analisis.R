@@ -137,7 +137,9 @@ level_order <- c("original", "no_drifting", "ventana6", "no_2019", "trece_meses"
 ggplot(ganancias_maximas, aes(x=factor(experimento, level = level_order), y=ganancia, fill=factor(semillero)))+
   geom_dotplot(binaxis='y', stackdir='center') +
   theme(text = element_text(size = 20),
-        axis.text = element_text(size = 20)) 
+        axis.text = element_text(size = 20),
+        axis.text.x = element_text(face="bold", color="#993333", 
+                                   size=14, angle=45)) 
 
 ##### plot curvas semillero ####
 
@@ -164,8 +166,14 @@ ggplot(ganancias_semilleros, aes(envios,value, color=variable)) +
   geom_line()  +
   theme(text = element_text(size = 20),
         axis.text = element_text(size = 20),
-        legend.position="bottom") 
-
+        legend.position="bottom",
+        legend.box="vertical", legend.margin=margin()) + 
+  guides(fill=guide_legend(nrow=2,byrow=TRUE)) +
+  scale_color_hue(labels=c("Predicted_ganancia" = "original", 
+                           "Predicted_ganancia_ventana6"="ventana6", 
+                           "Predicted_ganancia_no_drifting"="no_driftng",
+                           "Predicted_ganancia_no_2019"="no_2018",
+                           "Predicted_ganancia_trece_meses"="trece_meses"))
 
 
 
